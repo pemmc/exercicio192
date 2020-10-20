@@ -9,6 +9,8 @@ namespace Files.Entities
     {
         static void Main(string[] args)
         {
+            CultureInfo idiomaptBR = new CultureInfo("pt-BR");
+
             //windows C:\Users\<YourUserName>
             //string sourcePath = "c:\\Users\\Administrator\\Projects\\Exercicio\\Files\\csv\\Estoque.csv";
             //ou simplesmente usar o @ na frente antes das pastas... daí nao precisa duas barras \\
@@ -17,7 +19,7 @@ namespace Files.Entities
             //mac
             //diretorio padrao '/Users/nxgames/Exercicio/Files/bin/Debug/netcoreapp3.1
             //Console.WriteLine(Directory.GetCurrentDirectory());
- \
+ 
             //https://www.udemy.com/course/programacao-orientada-a-objetos-csharp/learn/lecture/11443358#overview
             Console.WriteLine("EXERCÍCIO DE FIXAÇÃ0");
             Console.WriteLine("====================");
@@ -48,8 +50,8 @@ namespace Files.Entities
                 //string targetFilePath = targetFolderPath + @"\summary.csv";
 
                 //macOS
-                string targetFolderPath = sourceFolderPath + "/out";
-                string targetFilePath = targetFolderPath + "/summary.csv";
+                string targetFolderPath = sourceFolderPath + pathSeparator + "out";
+                string targetFilePath = targetFolderPath + pathSeparator + "summario.csv";
 
                 Directory.CreateDirectory(targetFolderPath);
 
@@ -66,6 +68,7 @@ namespace Files.Entities
                         Product prod = new Product(name, price, quantity);
 
                         sw.WriteLine(prod.Name + "," + prod.Total().ToString("F2", CultureInfo.InvariantCulture));
+
                     }
                 }
             }
@@ -73,6 +76,7 @@ namespace Files.Entities
             {
                 Console.WriteLine("An error occurred");
                 Console.WriteLine(e.Message);
+
             }
 
         }
